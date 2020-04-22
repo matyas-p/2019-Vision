@@ -13,9 +13,9 @@ namespace Hackathon.Feature.DynamicMove.Commands
     [Serializable]
     public class MoveSelected : MoveTo
     {
-        private Database _master = Sitecore.Configuration.Factory.GetDatabase("master");
         public override void Execute(CommandContext context)
         {
+            var sitecoreDb = Sitecore.Context.ContentDatabase;
             string sc_selectedItems = HttpContext.Current.Request.Cookies["sc_selectedItems"]?.Value;
 
             // Check if there are any items selected
@@ -31,7 +31,7 @@ namespace Hackathon.Feature.DynamicMove.Commands
             foreach (var itemID in itemIDs)
             {
                 // Get selected item by id 
-                Item contextItem = _master.GetItem(ID.Parse(itemID));
+                Item contextItem = sitecoreDb.GetItem(ID.Parse(itemID));
                 itemsList.Add(contextItem);
             }
 

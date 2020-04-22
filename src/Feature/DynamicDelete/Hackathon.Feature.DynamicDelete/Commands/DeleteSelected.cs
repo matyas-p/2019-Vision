@@ -15,13 +15,13 @@ namespace Hackathon.Feature.DynamicDelete.Commands
     [Serializable]
     public class DeleteSelected : Command
     {
-        private Database _master = Sitecore.Configuration.Factory.GetDatabase("master");
         /// <summary>
         /// Executes the command in the specified context.
         /// </summary>
         /// <param name="context">The context.</param>
         public override void Execute(CommandContext context)
         {
+            var sitecoreDb = Sitecore.Context.ContentDatabase;
             // Get selected items ids for the cookie
             string sc_selectedItems = System.Web.HttpContext.Current.Request.Cookies["sc_selectedItems"]?.Value;
 
@@ -38,7 +38,7 @@ namespace Hackathon.Feature.DynamicDelete.Commands
             foreach (var itemID in itemIDs)
             {
                 // Get selected item by id 
-                Item contextItem = _master.GetItem(ID.Parse(itemID));
+                Item contextItem = sitecoreDb.GetItem(ID.Parse(itemID));
                 itemsList.Add(contextItem);
             }
 
