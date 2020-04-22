@@ -22,7 +22,7 @@ namespace Hackathon.Feature.DynamicCopy.Commands
         /// <param name="context">The context.</param>
         public override void Execute(CommandContext context)
         {
-            string sc_selectedItems = System.Web.HttpContext.Current.Request.Cookies["sc_selectedItems"].Value;
+            string sc_selectedItems = System.Web.HttpContext.Current.Request.Cookies["sc_selectedItems"]?.Value;
 
             // Check if there are any items selected
             if (string.IsNullOrEmpty(sc_selectedItems))

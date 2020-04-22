@@ -30,7 +30,7 @@ namespace Hackathon.Feature.DynamicPublish.Commands
         {
             // Get selected items ids for the cookies
             System.Web.HttpContext itemContext = System.Web.HttpContext.Current;         
-            string sc_selectedItems = itemContext.Request.Cookies["sc_selectedItems"].Value;
+            string sc_selectedItems = itemContext.Request.Cookies["sc_selectedItems"]?.Value;
 
             // Check if there is item selected
             if (string.IsNullOrEmpty(sc_selectedItems))

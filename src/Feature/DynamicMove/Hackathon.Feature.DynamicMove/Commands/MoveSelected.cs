@@ -16,7 +16,7 @@ namespace Hackathon.Feature.DynamicMove.Commands
         private Database _master = Sitecore.Configuration.Factory.GetDatabase("master");
         public override void Execute(CommandContext context)
         {
-            string sc_selectedItems = HttpContext.Current.Request.Cookies["sc_selectedItems"].Value;
+            string sc_selectedItems = HttpContext.Current.Request.Cookies["sc_selectedItems"]?.Value;
 
             // Check if there are any items selected
             if (string.IsNullOrEmpty(sc_selectedItems))

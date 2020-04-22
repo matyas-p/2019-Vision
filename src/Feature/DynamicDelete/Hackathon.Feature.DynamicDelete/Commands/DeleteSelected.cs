@@ -23,7 +23,7 @@ namespace Hackathon.Feature.DynamicDelete.Commands
         public override void Execute(CommandContext context)
         {
             // Get selected items ids for the cookie
-            string sc_selectedItems = System.Web.HttpContext.Current.Request.Cookies["sc_selectedItems"].Value;
+            string sc_selectedItems = System.Web.HttpContext.Current.Request.Cookies["sc_selectedItems"]?.Value;
 
             // Check if there are any items selected
             if (string.IsNullOrEmpty(sc_selectedItems))
