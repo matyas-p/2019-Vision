@@ -41,9 +41,9 @@ To make sure that you have installed your package successfully, you will be able
 
 ![ItemSelectorCheckbox](images/ItemSelectorCheckbox.png?raw=true "Item Selector Checkbox")
 
-- “Delete Selected Items” button under the Home tab.
+- “Copy-”, “Move-” and “Delete Selected Items” buttons under the Home tab.
 
-![DeleteSelectedItems](images/DeleteSelectedItems.png?raw=true "Delete Selected Items Button")
+![DeleteSelectedItems](images/CopyMoveDeleteSelectedItems.png?raw=true "Delete Selected Items Button")
 
 - “Publish Selected Items” button under the Publish tab in the publish menu:
 
@@ -51,34 +51,58 @@ To make sure that you have installed your package successfully, you will be able
 
 On the Files side, the following files, dlls, configurations, and JS files are installed:
 
-1- Hackathon.Feature.DynamicPublish.dll
+1- Hackathon.Feature.DynamicCopy.dll
 
-2- Hackathon.Feature.DynamicPublish.dll
+2- Hackathon.Feature.DynamicDelete.dll
 
-3- Hackathon.Project.Site.dll
+3- Hackathon.Feature.DynamicItemSelection.dll
 
-4- Hackathon.Feature.DynamicDelete.dll
+4- Hackathon.Feature.DynamicMove.dll
 
-5- Overwrite to [sitecore instance]\sitecore\shell\Applications\Content Manager\Default.aspx
+5- Hackathon.Feature.DynamicPublish.dll
 
-6- [sitecore instance]\App_Config\Include\Feature\Hackathon.Feature.DynamicDelete.config
+6- Hackathon.Project.Site.dll
 
-7- [sitecore instance]\App_Config\Include\Feature\Hackathon.Feature.DynamicItemsSelection.config
+7- Overwrite to [sitecore instance]\sitecore\shell\Applications\Content Manager\Default.aspx
 
-8- [sitecore instance]\App_Config\Include\Feature\Hackathon.Feature.DynamicPublish.config
+8- [sitecore instance]\App_Config\Include\Feature\Hackathon.Feature.DynamicCopy.config
 
-9- [sitecore instance]\sitecore\shell\Applications\Content Manager\custom-multi-selection.js
+9- [sitecore instance]\App_Config\Include\Feature\Hackathon.Feature.DynamicDelete.config
+
+10- [sitecore instance]\App_Config\Include\Feature\Hackathon.Feature.DynamicItemsSelection.config
+
+11- [sitecore instance]\App_Config\Include\Feature\Hackathon.Feature.DynamicMove.config
+
+12- [sitecore instance]\App_Config\Include\Feature\Hackathon.Feature.DynamicPublish.config
+
+13- [sitecore instance]\sitecore\shell\Applications\Content Manager\custom-multi-selection.js
 
 
 ## Usage
 
-In order to be able to use our module, install the following package using Sitecore Installation Wizard: “DynamicItemSelectionFeatures.zip”.
+In order to be able to use our module, install the following package using Sitecore Installation Wizard: “DynamicItemSelectionFeatures_1.1.zip”.
 
 You can start by navigating to the content editor, click on the “View tab”, and check the “Item Selector” checkbox in order to view the checkboxes next to the items in the content tree:
 
 ![ItemSelectorSelected](images/ItemSelectorSelected.png?raw=true "Item Selector Selected")
 
-There are two main functionalities implemented:
+There are four main functionalities implemented:
+
+- Copy Selected Items:
+
+Select the items that you wish to copy, navigate to the home tab, and click on "Copy Selected Items". A content tree view appears where you can select the destination folder.
+
+Note: If you select both an item and the parent of it, then the parent folder will be copied along with the child item, and the child item will be copied to the same level as the parent.
+
+![CopyingSelectedItemsFunctionality](images/CopyingSelectedItemsFunctionality.png?raw=true "Copying Selected Items Functionality")
+
+- Move Selected Items:
+
+Select the items that you wish to move, navigate to the home tab, and click on "Move Selected Items". A content tree view appears where you can select the destination folder.
+
+Note: If you select both an item and the parent/child of it, then it can cause unexpected outcome, e.g. the child moved first to the destination folder, and then the parent beside of the child, losing the hierarchy. That's why avoid selecting items which have parent-child relation.
+
+![MovingSelectedItemsFunctionality](images/MovingSelectedItemsFunctionality.png?raw=true "Moving Selected Items Functionality")
 
 - Delete Selected Items:
 
